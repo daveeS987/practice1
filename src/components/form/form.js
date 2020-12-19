@@ -1,19 +1,21 @@
-// import React, {useState, useEffect} from 'react';
+import {useDispatch} from 'react-redux';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 
 import './form.scss';
 import useForm from '../form-hook/form-hook.js';
 
+import {getResults} from '../../store/result.js';
 
-function TodoForm () {
 
+function LocationForm () {
+
+  let dispatch = useDispatch();
   const [handleSubmit, handleChange] = useForm(doWorkHere)
 
   function doWorkHere(formItem){
 
-    
-    console.log('formItem', formItem);
+    dispatch(getResults(formItem.city));
   }
 
   return(
@@ -44,4 +46,4 @@ function TodoForm () {
 
 }
 
-export default TodoForm;
+export default LocationForm;

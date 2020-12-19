@@ -1,5 +1,4 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -28,10 +27,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Header() {
   
   const classes = useStyles();
-  // const cart = useSelector( state => state.cart);
-  // let cartLength = Object.values(cart).reduce((acc, obj) => {
-  //   return acc + obj.count;
-  // },0);
+
 
   return (
     <div className={classes.root}>

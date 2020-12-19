@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 
@@ -13,6 +13,8 @@ import Container from '@material-ui/core/Container';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 
+
+// import {getResults} from '../../store/result.js';
 
 
 
@@ -32,21 +34,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
+
+
 function Products() {
 
   const classes = useStyles();
-  // const dispatch = useDispatch();
   
-  // let products = useSelector( (state) => state.products);
+  let results = useSelector( (state) => state.results);
 
-
-  // const add = (product) => {
-  //   dispatch(addToCart(product));
-  //   dispatch(decrementStock(product));
-
-  // }
-
-
+  console.log('RESULTS from result page:', results);
 
   return (
 
@@ -56,47 +52,7 @@ function Products() {
           {/* why 3 specs here? on a small screen, use 12 grid spots, 6 on a small screen, 4 on medium+ */}
           {/* In other words, 1 accross, 2 accross, or 3 accross */}
 
-          {
-          //   products.map(product => {
-          //     return (
-
-          //       <Grid item xs={12} sm={6} md={4} key={product._id}>
-          //         <Card className={classes.root}>
-          //           <CardActionArea>
-          //             <CardMedia
-          //               className={classes.media}
-          //               image={product.imageUrl}
-          //             />
-          //             <CardContent>
-          //               <Typography gutterBottom variant="h5" component="h2">
-          //                 {product.name}
-          //               </Typography>
-          //               <Typography variant="body2" color="textSecondary" component="p">
-          //                 {product.description}
-          //               </Typography>
-          //               <Typography variant="body2" color="textSecondary" component="p">
-          //                 In Stock:{product.inStock}
-          //               </Typography>
-          //             </CardContent>
-          //           </CardActionArea>
-          //           <CardActions>
-          //             <When condition={product.inStock > 0}>
-          //               <Button size="small" color="primary">
-          //                 Add to Cart
-          //               </Button>
-          //             </When>
-          //             <Button size="small" color="primary">
-          //               View Details
-          //             </Button>
-          //           </CardActions>
-          //         </Card>
-          //       </Grid>
-
-          //     )
-          //   })
-          }
-
-                <Grid item xs={12} sm={6} md={4} > 
+          <Grid item xs={12} sm={6} md={4} > 
                   <Card className={classes.root}>
                     <CardActionArea>
                       <CardMedia
@@ -126,7 +82,49 @@ function Products() {
                       </Button>
                     </CardActions>
                   </Card>
+          </Grid>
+
+          {
+            results.map(restaurant => {
+              return (
+
+                <Grid item xs={12} sm={6} md={4} key={restaurant._id}>
+                  <Card className={classes.root}>
+                    <CardActionArea>
+                      <CardMedia
+                        className={classes.media}
+                        image={restaurant.image_url}
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {restaurant.name}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                          {restaurant.description}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                          Phone:{restaurant.display_phone}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+  
+                      <Button size="small" color="primary">
+                        Save to List
+                      </Button>
+      
+                      <Button size="small" color="primary">
+                        View Details
+                      </Button>
+                    </CardActions>
+                  </Card>
                 </Grid>
+
+              )
+            })
+          }
+
+
 
 
         </Grid>
