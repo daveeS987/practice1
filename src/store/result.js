@@ -1,6 +1,4 @@
 import axios from 'axios';
-import superagent from 'superagent';
-import request from 'superagent';
 
 const initialState = [];
 

@@ -6,6 +6,7 @@ import store from './store';
 
 import Header from './components/header/header.js';
 
+import SavedList from './components/savedlist/saved-list.js';
 import Form from './components/form/form.js';
 import Result from  './components/results/results.js'
 
@@ -21,6 +22,7 @@ function App() {
       <Provider store={store}>
         <CssBaseline/>
           <Header />
+          <SavedList />
           <Form />
           <Result />
           <Footer />

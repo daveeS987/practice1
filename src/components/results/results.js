@@ -14,8 +14,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
 
 
-// import {getResults} from '../../store/result.js';
-
+import {addToList} from '../../store/savedList.js';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 function Products() {
 
   const classes = useStyles();
+  const dispatch = useDispatch();
   
   let results = useSelector( (state) => state.results);
 
@@ -88,28 +88,34 @@ function Products() {
             results.map(restaurant => {
               return (
 
-                <Grid item xs={12} sm={6} md={4} key={restaurant._id}>
+                <Grid item xs={12} sm={6} md={4} key={restaurant.id}>
                   <Card className={classes.root}>
                     <CardActionArea>
                       <CardMedia
                         className={classes.media}
                         image={restaurant.image_url}
                       />
+
                       <CardContent>
+
                         <Typography gutterBottom variant="h5" component="h2">
                           {restaurant.name}
                         </Typography>
+
                         <Typography variant="body2" color="textSecondary" component="p">
-                          {restaurant.description}
+                          {restaurant.location.address1}
                         </Typography>
+
                         <Typography variant="body2" color="textSecondary" component="p">
                           Phone:{restaurant.display_phone}
                         </Typography>
+
                       </CardContent>
+
                     </CardActionArea>
                     <CardActions>
   
-                      <Button size="small" color="primary">
+                      <Button size="small" color="primary"  onClick={() => dispatch(addToList(restaurant))}>
                         Save to List
                       </Button>
       
