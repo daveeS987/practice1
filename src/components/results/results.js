@@ -30,12 +30,15 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 140,
   },
+  body: {
+    minHeight: '50%'
+  }
 }));
 
 
 
 
-function Products() {
+function Results() {
 
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -47,12 +50,12 @@ function Products() {
   return (
 
     <>
-      <Container maxWidth="md" component="main">
+      <Container maxWidth="md" component="main" className={classes.body}>
         <Grid container spacing={5} alignItems="stretch">
           {/* why 3 specs here? on a small screen, use 12 grid spots, 6 on a small screen, 4 on medium+ */}
           {/* In other words, 1 accross, 2 accross, or 3 accross */}
 
-          <Grid item xs={12} sm={6} md={4} > 
+          {/* <Grid item xs={12} sm={6} md={4} > 
                   <Card className={classes.root}>
                     <CardActionArea>
                       <CardMedia
@@ -82,7 +85,7 @@ function Products() {
                       </Button>
                     </CardActions>
                   </Card>
-          </Grid>
+          </Grid> */}
 
           {
             results.map(restaurant => {
@@ -139,4 +142,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default Results;

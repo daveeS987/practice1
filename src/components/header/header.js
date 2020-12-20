@@ -39,7 +39,7 @@ export default function Header() {
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h4" className={classes.title}>
             Restaurant Randomizer
           </Typography>
           <Button color="inherit">Saved List ({Object.values(savedList).length})</Button>
