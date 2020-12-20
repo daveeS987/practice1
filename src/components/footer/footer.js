@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+import green from '@material-ui/core/colors/green';
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(8),
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
+    backgroundColor: green[600]
   },
 }));
 

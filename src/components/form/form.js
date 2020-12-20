@@ -36,7 +36,7 @@ function LocationForm () {
 
 
       
-      <Button variant="primary" type="submit">
+      <Button className="searchbutton" variant="primary" type="submit">
         Search
       </Button>
 

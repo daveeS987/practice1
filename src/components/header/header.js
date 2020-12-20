@@ -1,4 +1,5 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -28,6 +29,8 @@ export default function Header() {
   
   const classes = useStyles();
 
+  let savedList = useSelector( state => state.savedList);
+
 
   return (
     <div className={classes.root}>
@@ -39,7 +42,7 @@ export default function Header() {
           <Typography variant="h6" className={classes.title}>
             Restaurant Randomizer
           </Typography>
-          <Button color="inherit">Saved List</Button>
+          <Button color="inherit">Saved List ({Object.values(savedList).length})</Button>
         </Toolbar>
       </AppBar>
     </div>

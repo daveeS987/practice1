@@ -27,7 +27,6 @@ function SimpleCart() {
   const dispatch = useDispatch();
   let savedList = useSelector( state => state.savedList);
 
-  console.log('savedList:', savedList);
 
   return (
     <>
